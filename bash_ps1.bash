@@ -28,4 +28,4 @@ GIT_PS1_SHOWDIRTYSTATE=true
 chars=("🐷" "🐯" "🐸" "🐶" "🐵" "🐙" "🐮" "🐰" "🐻" "🐱" "🐯" "🐨" "🐭")
 num_chars=${#chars[*]}
 COOL_CHAR="${chars[$((RANDOM%num_chars))]} "
-export PS1="\[\e]0;$COOL_CHAR \W \t\a\]\[$CYAN\]"'\u'"\[$YELLOW\]@\[$GRAY\]"'\h'"\[$WHITEb\] \w \[$RED\]"'$(gitbranch)'"\n\[$DEFAULT\]$COOL_CHAR "
+export PS1="\[\e]0;$COOL_CHAR \W \a\]\[$GRAY\]"'\t '"\[$CYAN\]"'\u'"\[$WHITEb\] \w \[$RED\]"'$(gitbranch)'"\n\[$DEFAULT\]$COOL_CHAR "
