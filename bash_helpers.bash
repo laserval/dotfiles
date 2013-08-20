@@ -21,3 +21,11 @@ function resetmodes() {
 function sourcebash() {
 	source ~/.bash_profile
 }
+
+function lsdo {
+	for d in `ls`
+	do
+		test -d $d || continue
+		( cd $d && echo ": $d : $1" && "$@" )
+	done
+}
