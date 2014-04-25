@@ -1,6 +1,6 @@
 # Colors
 export CLICOLOR=1
-#export LSCOLORS=Gxfxcxdxbxegedabagacad
+export LSCOLORS=Gxfxcxdxbxegedabagacad
 export TERM="xterm-256color"
 DEFAULT="\e[0m"
 DEFAULTb="\e[1m"

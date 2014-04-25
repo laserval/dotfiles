@@ -1,4 +1,7 @@
 #! /bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+#source $DIR/lib/preexec.bash
+
 # Git-completion PS1 handler
 # Special case for master!
 ps1_gitbranch() {
@@ -35,9 +38,19 @@ ps1_generate() {
 	PS1=$str
 }
 
+function preexec() {
+	ps1_generate $? $COOL_CHAR
+}
+
+function precmd() {
+	ps1_generate $? $COOL_CHAR
+
+}
+
 GIT_PS1_SHOWDIRTYSTATE=true
 chars=("☆" "☼" "♨" "♎" "☯" "△" "❖")
 num_chars=${#chars[*]}
 COOL_CHAR="${chars[$((RANDOM%num_chars))]} "
 #export PS1='$(ps1_gitbranch)' "
 PROMPT_COMMAND='ps1_generate $? $COOL_CHAR'
+#preexec_install
