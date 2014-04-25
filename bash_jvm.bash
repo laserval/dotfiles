@@ -14,6 +14,10 @@ jvm7() {
 	switch_jvm "1.7"
 }
 
+jvm8() {
+	switch_jvm "1.8"
+}
+
 default_jvm() {
 	jvm7
 }
