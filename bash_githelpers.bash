@@ -15,3 +15,7 @@ function cleargit {
 		echo $branch | grep -e "^  " | xargs git branch -D
 	done
 }
+
+function watchtree {
+	watch -n 3 git tree
+}
