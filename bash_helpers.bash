@@ -29,3 +29,29 @@ function lsdo {
 		( cd $d && echo ": $d : $1" && "$@" )
 	done
 }
+
+# http://stackoverflow.com/a/7157609
+function watch() {
+	local delay=2
+	local lines=$(tput lines)
+	lines=$((${lines:-20} - 1))
+
+	if [[ "$1" -eq "-n" ]]; then
+		shift 
+		delay=$((${1:-2}))
+		shift 
+	fi
+
+	while true
+	do
+		clear
+		"$@" | head -n $lines
+		sleep $delay
+	done
+}
+
+function timestamp() {
+	while read line; do
+		echo $(date)" : "$line
+	done <&0
+}
