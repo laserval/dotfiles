@@ -4,15 +4,18 @@ function lsgit() {
 	for d in `ls`
 	do
 		test -d $d || continue
-		( cd $d && test -d .git && echo "$d" && git $1 )
+		( cd $d && test -d .git && echo "$d" && git "$@" )
 	done
 }
 
 function cleargit {
+	git fetch -p
 	IFS=$'\n'
 	for branch in $(git branch)
 	do
-		echo $branch | grep -e "^  " | xargs git branch -D
+		if [[ $branch =~ ^[^\*].*$ && $branch != "  master" ]]; then
+			( echo $branch | xargs git branch -d )
+		fi
 	done
 }
 
