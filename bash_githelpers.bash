@@ -22,3 +22,7 @@ function cleargit {
 function watchtree {
 	watch -n 3 git tree
 }
+
+function addGitTree {
+	git config --global alias.tree "log --graph --pretty=format:'%C(white bold dim)%h%Creset%C(blue)%d%Creset %C(white)%s%C(reset) (by %C(green dim)%an %C(red dim)%ar%C(reset))%Creset' --all"
+}
